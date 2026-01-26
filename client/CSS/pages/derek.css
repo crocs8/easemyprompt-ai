@@ -1,0 +1,70 @@
+.derek-wrapper {
+  padding-top: 90px;
+}
+/* NETWORK BACKGROUND */
+.derek-wrapper {
+  min-height: 100vh;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.derek-hero {
+  width: 100%;
+  max-width: 720px;
+  text-align: center;
+}
+
+.derek-title {
+  font-size: clamp(2rem, 6vw, 3rem);
+  margin-bottom: 0.4rem;
+}
+
+.derek-sub {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-bottom: 2.5rem;
+}
+
+.derek-input-box {
+  display: flex;
+  gap: 0.6rem;
+  background: #1b1b1b;
+  padding: 0.6rem;
+  border-radius: 22px;
+}
+
+.derek-input-box textarea {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--text);
+  font-size: 1rem;
+  padding: 0.8rem 0.9rem;
+  resize: none;
+  overflow-y: hidden;
+}
+
+.derek-input-box textarea:focus {
+  outline: none;
+}
+
+.derek-input-box button {
+  padding: 0.8rem 1.2rem;
+  border-radius: 16px;
+  border: none;
+  background: var(--accent);
+  font-weight: 600;
+}
+
+.derek-output {
+  margin-top: 2rem;
+  padding: 1.2rem;
+  border-radius: 18px;
+  background: #161616;
+  min-height: 120px;
+  text-align: left;
+  font-size: 0.95rem;
+  display: none;
+}

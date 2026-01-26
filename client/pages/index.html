@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Derek – AI Prompt Engineer</title>
+
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/pages/auth.css">
+  <link rel="stylesheet" href="../css/pages/home.css">
+
+  <script defer src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script defer src="../js/pages/home.js"></script>
+</head>
+<body>
+
+<canvas id="network-bg"></canvas>
+
+<header class="index-header">
+  <div class="brand">easemyprompt.ai</div>
+  <a href="#" class="header-login-btn">Login</a>
+</header>
+
+<main class="home-wrapper">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        The Intelligence Layer <br>for your <span>AI Workflow</span>
+      </h1>
+      <p class="hero-sub">
+        Derek turns raw ideas into engineering-grade AI prompts. Stop guessing, start building.
+      </p>
+      <div class="derek-input-box">
+        <textarea id="derekInput" rows="1" placeholder="Try generating a prompt for a website idea..."></textarea>
+        <button id="generateBtn" aria-label="Generate">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="19" x2="12" y2="5"></line>
+            <polyline points="5 12 12 5 19 12"></polyline>
+          </svg>
+        </button>
+      </div>
+      <div class="derek-output" id="outputBox">
+        <!-- generated prompt will appear here -->
+      </div>
+      <p class="generation-limit-note" id="limitNote">You have 2 free generations.</p>
+    </div>
+  </section>
+
+  <!-- PROMPTS MARQUEE -->
+  <section class="prompts-marquee-section">
+    <div class="section-header">
+      <h2>Community Favorites</h2>
+      <p>Most copied and enhanced prompts this week.</p>
+    </div>
+    
+    <div class="prompts-marquee">
+      <div class="prompts-track">
+        <!-- Card 1 -->
+        <div class="prompt-card-home" data-id="1">
+          <div class="card-top">
+            <span class="badge">Resume</span>
+            <span class="likes">❤️ 1.2k</span>
+          </div>
+          <h3>Weak Resume → Strong Rewrite</h3>
+          <p>Reorganize sections, fill gaps, and strengthen formatting for clarity.</p>
+          <div class="card-actions">
+            <button class="action-btn copy-trigger">Copy</button>
+            <button class="action-btn see-more-trigger">See More</button>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="prompt-card-home" data-id="6">
+          <div class="card-top">
+            <span class="badge">Interview</span>
+            <span class="likes">❤️ 2.5k</span>
+          </div>
+          <h3>"Tell Me About Yourself"</h3>
+          <p>Craft a perfect 2-minute answer covering present, past, and future.</p>
+          <div class="card-actions">
+            <button class="action-btn copy-trigger">Copy</button>
+            <button class="action-btn see-more-trigger">See More</button>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="prompt-card-home" data-id="11">
+          <div class="card-top">
+            <span class="badge">Cover Letter</span>
+            <span class="likes">❤️ 900</span>
+          </div>
+          <h3>Internship Cover Letter</h3>
+          <p>Write a 150-word letter showing enthusiasm and relevant coursework.</p>
+          <div class="card-actions">
+            <button class="action-btn copy-trigger">Copy</button>
+            <button class="action-btn see-more-trigger">See More</button>
+          </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="prompt-card-home" data-id="9">
+          <div class="card-top">
+            <span class="badge">Career</span>
+            <span class="likes">❤️ 1.8k</span>
+          </div>
+          <h3>5-Year Career Roadmap</h3>
+          <p>Create a detailed plan with skill targets, salary goals, and metrics.</p>
+          <div class="card-actions">
+            <button class="action-btn copy-trigger">Copy</button>
+            <button class="action-btn see-more-trigger">See More</button>
+          </div>
+        </div>
+        <!-- Card 5 -->
+        <div class="prompt-card-home" data-id="14">
+          <div class="card-top">
+            <span class="badge">Email</span>
+            <span class="likes">❤️ 2.1k</span>
+          </div>
+          <h3>Short Email-Style Cover Letter</h3>
+          <p>Create a 150-word letter for email body or LinkedIn Easy Apply.</p>
+          <div class="card-actions">
+            <button class="action-btn copy-trigger">Copy</button>
+            <button class="action-btn see-more-trigger">See More</button>
+          </div>
+        </div>
+        <!-- Card 6 -->
+        <div class="prompt-card-home" data-id="17">
+          <div class="card-top">
+            <span class="badge">Career</span>
+            <span class="likes">❤️ 2.8k</span>
+          </div>
+          <h3>Salary Negotiation Note</h3>
+          <p>Write a polite salary negotiation response after receiving an offer.</p>
+          <div class="card-actions">
+            <button class="action-btn copy-trigger">Copy</button>
+            <button class="action-btn see-more-trigger">See More</button>
+          </div>
+        </div>
+        <!-- Card 7 -->
+        <div class="prompt-card-home" data-id="15">
+          <div class="card-top">
+            <span class="badge">Email</span>
+            <span class="likes">❤️ 3.0k</span>
+          </div>
+          <h3>Offer Letter Acceptance</h3>
+          <p>Write a professional acceptance email for a new job offer.</p>
+          <div class="card-actions">
+            <button class="action-btn copy-trigger">Copy</button>
+            <button class="action-btn see-more-trigger">See More</button>
+          </div>
+        </div>
+        <!-- Card 8 -->
+        <div class="prompt-card-home" data-id="5">
+          <div class="card-top">
+            <span class="badge">Resume</span>
+            <span class="likes">❤️ 1.5k</span>
+          </div>
+          <h3>Technical Skills Matrix</h3>
+          <p>Build a technical resume with a clear skills matrix for various roles.</p>
+          <div class="card-actions">
+            <button class="action-btn copy-trigger">Copy</button>
+            <button class="action-btn see-more-trigger">See More</button>
+          </div>
+        </div>
+        <!-- Card 9 -->
+        <div class="prompt-card-home" data-id="7">
+          <div class="card-top">
+            <span class="badge">Interview</span>
+            <span class="likes">❤️ 1.9k</span>
+          </div>
+          <h3>Strengths & Weaknesses</h3>
+          <p>Generate a balanced strengths and weaknesses answer for interviews.</p>
+          <div class="card-actions">
+            <button class="action-btn copy-trigger">Copy</button>
+            <button class="action-btn see-more-trigger">See More</button>
+          </div>
+        </div>
+        <!-- Card 10 -->
+        <div class="prompt-card-home" data-id="12">
+          <div class="card-top">
+            <span class="badge">Cover Letter</span>
+            <span class="likes">❤️ 1.6k</span>
+          </div>
+          <h3>Job Application Letter</h3>
+          <p>Draft a professional cover letter for a full-time role at a specific company.</p>
+          <div class="card-actions">
+            <button class="action-btn copy-trigger">Copy</button>
+            <button class="action-btn see-more-trigger">See More</button>
+          </div>
+        </div>
+
+        <!-- DUPLICATES FOR SEAMLESS LOOP -->
+
+        <!-- Card 1 -->
+        <div class="prompt-card-home" data-id="1">
+          <div class="card-top">
+            <span class="badge">Resume</span>
+            <span class="likes">❤️ 1.2k</span>
+          </div>
+          <h3>Weak Resume → Strong Rewrite</h3>
+          <p>Reorganize sections, fill gaps, and strengthen formatting for clarity.</p>
+          <div class="card-actions">
+            <button class="action-btn copy-trigger">Copy</button>
+            <button class="action-btn see-more-trigger">See More</button>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="prompt-card-home" data-id="6">
+          <div class="card-top">
+            <span class="badge">Interview</span>
+            <span class="likes">❤️ 2.5k</span>
+          </div>
+          <h3>"Tell Me About Yourself"</h3>
+          <p>Craft a perfect 2-minute answer covering present, past, and future.</p>
+          <div class="card-actions">
+            <button class="action-btn copy-trigger">Copy</button>
+            <button class="action-btn see-more-trigger">See More</button>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="prompt-card-home" data-id="11">
+          <div class="card-top">
+            <span class="badge">Cover Letter</span>
+            <span class="likes">❤️ 900</span>
+          </div>
+          <h3>Internship Cover Letter</h3>
+          <p>Write a 150-word letter showing enthusiasm and relevant coursework.</p>
+          <div class="card-actions">
+            <button class="action-btn copy-trigger">Copy</button>
+            <button class="action-btn see-more-trigger">See More</button>
+          </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="prompt-card-home" data-id="9">
+          <div class="card-top">
+            <span class="badge">Career</span>
+            <span class="likes">❤️ 1.8k</span>
+          </div>
+          <h3>5-Year Career Roadmap</h3>
+          <p>Create a detailed plan with skill targets, salary goals, and metrics.</p>
+          <div class="card-actions">
+            <button class="action-btn copy-trigger">Copy</button>
+            <button class="action-btn see-more-trigger">See More</button>
+          </div>
+        </div>
+        <!-- Card 5 -->
+        <div class="prompt-card-home" data-id="14">
+          <div class="card-top">
+            <span class="badge">Email</span>
+            <span class="likes">❤️ 2.1k</span>
+          </div>
+          <h3>Short Email-Style Cover Letter</h3>
+          <p>Create a 150-word letter for email body or LinkedIn Easy Apply.</p>
+          <div class="card-actions">
+            <button class="action-btn copy-trigger">Copy</button>
+            <button class="action-btn see-more-trigger">See More</button>
+          </div>
+        </div>
+        <!-- Card 6 -->
+        <div class="prompt-card-home" data-id="17">
+          <div class="card-top">
+            <span class="badge">Career</span>
+            <span class="likes">❤️ 2.8k</span>
+          </div>
+          <h3>Salary Negotiation Note</h3>
+          <p>Write a polite salary negotiation response after receiving an offer.</p>
+          <div class="card-actions">
+            <button class="action-btn copy-trigger">Copy</button>
+            <button class="action-btn see-more-trigger">See More</button>
+          </div>
+        </div>
+        <!-- Card 7 -->
+        <div class="prompt-card-home" data-id="15">
+          <div class="card-top">
+            <span class="badge">Email</span>
+            <span class="likes">❤️ 3.0k</span>
+          </div>
+          <h3>Offer Letter Acceptance</h3>
+          <p>Write a professional acceptance email for a new job offer.</p>
+          <div class="card-actions">
+            <button class="action-btn copy-trigger">Copy</button>
+            <button class="action-btn see-more-trigger">See More</button>
+          </div>
+        </div>
+        <!-- Card 8 -->
+        <div class="prompt-card-home" data-id="5">
+          <div class="card-top">
+            <span class="badge">Resume</span>
+            <span class="likes">❤️ 1.5k</span>
+          </div>
+          <h3>Technical Skills Matrix</h3>
+          <p>Build a technical resume with a clear skills matrix for various roles.</p>
+          <div class="card-actions">
+            <button class="action-btn copy-trigger">Copy</button>
+            <button class="action-btn see-more-trigger">See More</button>
+          </div>
+        </div>
+        <!-- Card 9 -->
+        <div class="prompt-card-home" data-id="7">
+          <div class="card-top">
+            <span class="badge">Interview</span>
+            <span class="likes">❤️ 1.9k</span>
+          </div>
+          <h3>Strengths & Weaknesses</h3>
+          <p>Generate a balanced strengths and weaknesses answer for interviews.</p>
+          <div class="card-actions">
+            <button class="action-btn copy-trigger">Copy</button>
+            <button class="action-btn see-more-trigger">See More</button>
+          </div>
+        </div>
+        <!-- Card 10 -->
+        <div class="prompt-card-home" data-id="12">
+          <div class="card-top">
+            <span class="badge">Cover Letter</span>
+            <span class="likes">❤️ 1.6k</span>
+          </div>
+          <h3>Job Application Letter</h3>
+          <p>Draft a professional cover letter for a full-time role at a specific company.</p>
+          <div class="card-actions">
+            <button class="action-btn copy-trigger">Copy</button>
+            <button class="action-btn see-more-trigger">See More</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <section class="trusted-section">
+    <div class="section-header">
+      <h2>OUR ENHANCED PROMPTS WORKS ON EVERY LLMs</h2>
+      <p> We don’t talk with  <span style="color: var(--accent);">AI</span> We make <span style="color: var(--accent);">AI</span> work</p>
+    </div>
+    <div class="marquee">
+      <div class="marquee-track">
+        <!-- Duplicate content for seamless loop -->
+        <span>GPT-4</span> <span>Claude 3</span> <span>Gemini Pro</span> <span>DALL-E 3</span> <span>Midjourney</span> <span>Llama 3</span> <span>Mistral</span>
+        <span>GPT-4</span> <span>Claude 3</span> <span>Gemini Pro</span> <span>DALL-E 3</span> <span>Midjourney</span> <span>Llama 3</span> <span>Mistral</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ATOMIC ORBIT SECTION -->
+  <section class="orbit-section">
+    <div class="section-header">
+      <h2>The Core of your AI Stack</h2>
+      <p>Derek integrates with the tools you already use, acting as the central intelligence.</p>
+    </div>
+    <div class="orbit-container">
+      <div class="orbit-center">
+        <div class="logo">D</div>
+      </div>
+      <div class="orbit-item item-1"><span>Custom Prompts</span></div>
+      <div class="orbit-item item-2"><span>ChatGPT Lab</span></div>
+      <div class="orbit-item item-3"><span>Power Prompts</span></div>
+      <div class="orbit-item item-4"><span>Derek</span></div>
+      <div class="orbit-item item-5"><span>Prompt Library</span></div>
+      <div class="orbit-item item-6"><span>Integrations</span></div>
+    </div>
+  </section>
+
+  <!-- PRICING SECTION -->
+  <section class="pricing-section">
+    <div class="section-header">
+      <h2>Pricing that Scales</h2>
+      <p>Start for free, then grow with us. No hidden fees.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h3>Free</h3>
+        <div class="price"><span>$</span>0</div>
+        <ul>
+          <li>10 Derek Generations / mo</li>
+          <li>Basic Prompt Library</li>
+          <li>ChatGPT Test Lab</li>
+        </ul>
+        <a href="#" class="secondary-btn">Start for Free</a>
+      </div>
+      <div class="pricing-card featured">
+        <h3>Pro</h3>
+        <div class="price"><span>$</span>29<span>/mo</span></div>
+        <ul>
+          <li>Unlimited Generations</li>
+          <li>Full Prompt Library</li>
+          <li>Power Prompt Access</li>
+          <li>Priority Support</li>
+        </ul>
+        <a href="#" class="primary-btn">Go Pro</a>
+      </div>
+      <div class="pricing-card">
+        <h3>Enterprise</h3>
+        <div class="price">Custom</div>
+        <ul>
+          <li>Team Collaboration</li>
+          <li>Custom Integrations</li>
+          <li>On-premise Deployment</li>
+          <li>Dedicated Support</li>
+        </ul>
+        <a href="#" class="secondary-btn">Contact Sales</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- POWER PROMPTS SECTION -->
+  <section class="power-prompts-section">
+    <div class="section-header">
+      <h2>Must-Try Power Prompts</h2>
+      <p>Go beyond simple generation with our flagship tools.</p>
+    </div>
+    <div class="power-prompts-grid">
+      <div class="power-card">
+        <span class="icon">🚀</span>
+        <h3>Launch Lander</h3>
+        <p>Generate an entire landing page structure and copy from a one-sentence idea.</p>
+        <a href="#">Try now &rarr;</a>
+      </div>
+      <div class="power-card">
+        <span class="icon">🧠</span>
+        <h3>PersonaGen</h3>
+        <p>Create a detailed user persona, including pain points, goals, and motivations.</p>
+        <a href="#">Try now &rarr;</a>
+      </div>
+      <div class="power-card">
+        <span class="icon">🎨</span>
+        <h3>Art Director</h3>
+        <p>Turn a simple concept into a rich, cinematic prompt for Midjourney or DALL-E.</p>
+        <a href="#">Try now &rarr;</a>
+      </div>
+      <div class="power-card">
+        <span class="icon">📈</span>
+        <h3>Growth Hacker</h3>
+        <p>Brainstorm a complete GTM strategy with channels, messaging, and KPIs.</p>
+        <a href="#">Try now &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="faq-section">
+    <div class="section-header">
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>What is Derek?</span>
+          <span class="icon">&plus;</span>
+        </button>
+        <div class="faq-answer">
+          <p>Derek is an AI-powered tool that helps you create high-quality, detailed, and effective prompts for other AI models like ChatGPT, Midjourney, and more. It acts as an intelligence layer, turning your simple ideas into prompts that get you better results.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>Who is this for?</span>
+          <span class="icon">&plus;</span>
+        </button>
+        <div class="faq-answer">
+          <p>Derek is for developers, designers, marketers, writers, and anyone who uses generative AI in their workflow. If you want to save time and get more out of your AI tools, Derek is for you.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>How does the 'Pro' plan work?</span>
+          <span class="icon">&plus;</span>
+        </button>
+        <div class="faq-answer">
+          <p>The Pro plan gives you unlimited access to all of Derek's features, including unlimited prompt generations, the full prompt library, and our exclusive Power Prompts. It's a flat monthly fee, and you can cancel anytime.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <h3>DEREK</h3>
+      <p>The Intelligence Layer for AI</p>
+    </div>
+    <div class="footer-links">
+      <div>
+        <h4>Product</h4>
+        <a href="#">Features</a>
+        <a href="#">Pricing</a>
+        <a href="#">Updates</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="#">About</a>
+        <a href="#">Blog</a>
+        <a href="#">Contact</a>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+    <div class="footer-social">
+      <!-- Placeholder for social icons -->
+      <a href="#">X</a>
+      <a href="#">GitHub</a>
+      <a href="#">LinkedIn</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Derek AI. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- GENERATION LIMIT MODAL -->
+<div class="modal-overlay" id="generationLimitModal">
+  <div class="modal-box">
+    <h2>You're out of generations!</h2>
+    <p>Sign up for free to get unlimited access and unlock all features.</p>
+    <button id="genLimitSignupBtn" class="primary-btn">Sign Up Free</button>
+    <button id="closeGenLimitModalBtn" class="secondary-btn">Maybe Later</button>
+  </div>
+</div>
+
+<!-- LOGIN MODAL -->
+<div class="modal-overlay" id="loginModal">
+  <div class="auth-card">
+    <button class="close-auth-modal">&times;</button>
+    <h1 class="auth-title">Welcome back</h1>
+    <p class="auth-sub">Login to continue with easemyprompt.ai</p>
+
+    <form class="auth-form" id="loginForm">
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="you@example.com" required>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" placeholder="••••••••" required>
+      </div>
+      <button class="auth-btn">Continue</button>
+    </form>
+
+    <div class="auth-footer">
+      Don’t have an account?
+      <a href="#" id="switchToSignup">Sign up</a>
+    </div>
+  </div>
+</div>
+
+<!-- SIGNUP MODAL -->
+<div class="modal-overlay" id="signupModal">
+  <div class="auth-card">
+    <button class="close-auth-modal">&times;</button>
+    <h1 class="auth-title">Create account</h1>
+    <p class="auth-sub">Start building powerful prompts</p>
+
+    <form class="auth-form" id="signupForm">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" placeholder="Your name" required>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="you@example.com" required>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" placeholder="••••••••" required>
+      </div>
+      <button class="auth-btn">Create Account</button>
+    </form>
+
+    <div class="auth-footer">
+      Already have an account?
+      <a href="#" id="switchToLogin">Login</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

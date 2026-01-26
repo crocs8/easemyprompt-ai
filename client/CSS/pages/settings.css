@@ -1,0 +1,46 @@
+.settings-wrapper {
+  min-height: 100vh;
+  padding: 90px 1.5rem 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.settings-card {
+  width: 100%;
+  max-width: 420px;
+  background: #161616;
+  border-radius: 26px;
+  padding: 2rem;
+}
+
+.settings-title {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+}
+
+.setting-btn {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 18px;
+  background: #1f1f1f;
+  border: none;
+  color: var(--text);
+  margin-bottom: 0.8rem;
+}
+
+.setting-btn.danger {
+  background: #2a1414;
+  color: #ff6b6b;
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1.2rem 0;
+}
+
+.theme-toggle span {
+  font-size: 0.85rem;
+  color: var(--muted);
+}

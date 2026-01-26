@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login – Derek</title>
+
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/pages/auth.css">
+
+  <script defer src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+</head>
+<body>
+
+<div class="auth-wrapper">
+  <div class="auth-card" id="authCard">
+    <a href="../pages/index.html" class="back-link">&larr; Back</a>
+    <h1 class="auth-title">Welcome back</h1>
+    <p class="auth-sub">Login to continue with Derek</p>
+
+    <form class="auth-form">
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="you@example.com" required>
+      </div>
+
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" placeholder="••••••••" required>
+      </div>
+
+      <button class="auth-btn">Continue</button>
+    </form>
+
+    <div class="auth-footer">
+      Don’t have an account?
+      <a href="signup.html">Sign up</a>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  gsap.from("#authCard", { y: 20, opacity: 0, duration: 0.6, ease: "power3.out" });
+
+  document.querySelector(".auth-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    window.location.href = "../pages/preferences.html";
+  });
+});
+</script>
+
+</body>
+</html>

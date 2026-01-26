@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ChatGPT Test – Derek</title>
+
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/pages/chatgpt.css">
+
+  <script defer src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script defer src="../js/components/navbar.js"></script>
+  <script defer src="../js/pages/chatgpt.js"></script>
+</head>
+<body>
+
+<canvas id="network-bg"></canvas>
+<main class="chatgpt-wrapper">
+  <section class="chatgpt-container">
+    <h1 class="chatgpt-title">Prompt Test Lab</h1>
+    <p class="chatgpt-sub">Paste your detailed prompt and test it with ChatGPT</p>
+
+    <textarea
+      id="promptInput"
+      placeholder="Paste your detailed prompt here..."
+    ></textarea>
+
+    <button id="runPrompt">Run Prompt</button>
+
+    <div class="chatgpt-output" id="outputBox">
+      <!-- response appears here -->
+    </div>
+  </section>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Personalize – Derek</title>
+
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/pages/preferences.css">
+
+  <script defer src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script defer src="../js/pages/preferences.js"></script>
+</head>
+<body>
+
+<main class="pref-wrapper">
+  <header class="pref-header">
+    <h1>Personalize your experience</h1>
+    <p>Select topics you're interested in. <span id="selectionCount">0</span> selected.</p>
+  </header>
+
+  <div class="pref-grid">
+    <div class="pref-card" data-id="productivity">
+      <div class="card-icon">⚡</div>
+      <div class="card-content">
+        <h3>Productivity</h3>
+        <p>Work faster and automate tasks.</p>
+        <div class="tags"><span>#automation</span><span>#workflow</span></div>
+      </div>
+      <div class="check-indicator"></div>
+    </div>
+
+    <div class="pref-card" data-id="design">
+      <div class="card-icon">🎨</div>
+      <div class="card-content">
+        <h3>Design & Art</h3>
+        <p>Generate visuals and UI concepts.</p>
+        <div class="tags"><span>#midjourney</span><span>#ui/ux</span></div>
+      </div>
+      <div class="check-indicator"></div>
+    </div>
+
+    <div class="pref-card" data-id="marketing">
+      <div class="card-icon">📈</div>
+      <div class="card-content">
+        <h3>Marketing</h3>
+        <p>Copywriting, SEO, and strategy.</p>
+        <div class="tags"><span>#copy</span><span>#social</span></div>
+      </div>
+      <div class="check-indicator"></div>
+    </div>
+
+    <div class="pref-card" data-id="coding">
+      <div class="card-icon">💻</div>
+      <div class="card-content">
+        <h3>Coding</h3>
+        <p>Scripts, debugging, and architecture.</p>
+        <div class="tags"><span>#python</span><span>#web</span></div>
+      </div>
+      <div class="check-indicator"></div>
+    </div>
+
+    <div class="pref-card" data-id="writing">
+      <div class="card-icon">✍️</div>
+      <div class="card-content">
+        <h3>Writing</h3>
+        <p>Blogs, essays, and creative stories.</p>
+        <div class="tags"><span>#storytelling</span><span>#editing</span></div>
+      </div>
+      <div class="check-indicator"></div>
+    </div>
+  </div>
+
+  <div class="pref-footer">
+    <button id="continueBtn" disabled>Continue</button>
+    <p class="footer-note">You can change this later in settings.</p>
+  </div>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+.power-wrapper {
+  min-height: 100vh;
+  padding: 90px 1.5rem 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.power-container {
+  width: 100%;
+  max-width: 900px;
+}
+
+.power-title {
+  font-size: clamp(2rem, 5vw, 2.6rem);
+  margin-bottom: 0.4rem;
+}
+
+.power-sub {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 2rem;
+}
+
+/* POSTERS */
+.poster-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.poster-card {
+  background: #161616;
+  border-radius: 26px;
+  padding: 2.2rem 1.2rem;
+  text-align: center;
+}
+
+.poster-card span {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.poster-card h3 {
+  font-size: 0.95rem;
+}
+
+/* MODAL */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 200;
+}
+
+.modal-box {
+  background: #161616;
+  padding: 2rem;
+  border-radius: 22px;
+  text-align: center;
+  max-width: 360px;
+  width: 100%;
+}
+
+.modal-box p {
+  margin: 1rem 0 1.5rem;
+  color: var(--muted);
+}
+
+.modal-box button {
+  padding: 0.8rem 1.4rem;
+  border-radius: 16px;
+  border: none;
+  background: var(--accent);
+  font-weight: 600;
+}
