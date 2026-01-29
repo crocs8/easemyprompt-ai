@@ -1,5 +1,5 @@
 // client/js/core/utils.js
-window.API_BASE_URL = "https://easemyprompt-ai-2.onrender.com/api";
+window.API_BASE_URL = "https://easemyprompt-ai-2.onrender.com/";
 
 window.getToken = () => localStorage.getItem("token");
 
