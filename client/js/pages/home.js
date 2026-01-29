@@ -169,5 +169,4 @@ document.getElementById("homeSignupForm")
       alert(err.message || "Signup failed");
     }
   });
-
-
+});
