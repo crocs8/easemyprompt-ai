@@ -171,10 +171,3 @@ document.getElementById("homeSignupForm")
   });
 
 
-  document.getElementById("homeLoginForm")
-    ?.addEventListener("submit", e => { e.preventDefault(); authSuccess(); });
-
-  document.getElementById("homeSignupForm")
-    ?.addEventListener("submit", e => { e.preventDefault(); authSuccess(); });
-
-});
