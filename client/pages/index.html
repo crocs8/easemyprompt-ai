@@ -10,8 +10,12 @@
   <link rel="stylesheet" href="../css/pages/auth.css">
   <link rel="stylesheet" href="../css/pages/home.css">
 
-  <script defer src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
-  <script defer src="../js/pages/home.js"></script>
+<script defer src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+<script defer src="../js/core/utils.js"></script>
+<script defer src="../js/pages/home.js"></script>
+
+
+  
 </head>
 <body>
 
@@ -19,7 +23,7 @@
 
 <header class="index-header">
   <div class="brand">easemyprompt.ai</div>
-  <a href="#" class="header-login-btn">Login</a>
+  <a href="#" class="header-login-btn" id="headerLoginBtn">Login</a>
 </header>
 
 <main class="home-wrapper">
@@ -359,48 +363,6 @@
     </div>
   </section>
 
-  <!-- PRICING SECTION -->
-  <section class="pricing-section">
-    <div class="section-header">
-      <h2>Pricing that Scales</h2>
-      <p>Start for free, then grow with us. No hidden fees.</p>
-    </div>
-    <div class="pricing-grid">
-      <div class="pricing-card">
-        <h3>Free</h3>
-        <div class="price"><span>$</span>0</div>
-        <ul>
-          <li>10 Derek Generations / mo</li>
-          <li>Basic Prompt Library</li>
-          <li>ChatGPT Test Lab</li>
-        </ul>
-        <a href="#" class="secondary-btn">Start for Free</a>
-      </div>
-      <div class="pricing-card featured">
-        <h3>Pro</h3>
-        <div class="price"><span>$</span>29<span>/mo</span></div>
-        <ul>
-          <li>Unlimited Generations</li>
-          <li>Full Prompt Library</li>
-          <li>Power Prompt Access</li>
-          <li>Priority Support</li>
-        </ul>
-        <a href="#" class="primary-btn">Go Pro</a>
-      </div>
-      <div class="pricing-card">
-        <h3>Enterprise</h3>
-        <div class="price">Custom</div>
-        <ul>
-          <li>Team Collaboration</li>
-          <li>Custom Integrations</li>
-          <li>On-premise Deployment</li>
-          <li>Dedicated Support</li>
-        </ul>
-        <a href="#" class="secondary-btn">Contact Sales</a>
-      </div>
-    </div>
-  </section>
-
   <!-- POWER PROMPTS SECTION -->
   <section class="power-prompts-section">
     <div class="section-header">
@@ -435,37 +397,43 @@
     </div>
   </section>
 
-  <!-- FAQ SECTION -->
-  <section class="faq-section">
+  <!-- ABOUT SECTION -->
+  <section class="about-section">
     <div class="section-header">
-      <h2>Frequently Asked Questions</h2>
+      <h2>About EaseMyPrompt.ai</h2>
+      <p>We don’t talk with AI. We make AI work.</p>
     </div>
-    <div class="faq-list">
-      <div class="faq-item">
-        <button class="faq-question">
-          <span>What is Derek?</span>
-          <span class="icon">&plus;</span>
-        </button>
-        <div class="faq-answer">
-          <p>Derek is an AI-powered tool that helps you create high-quality, detailed, and effective prompts for other AI models like ChatGPT, Midjourney, and more. It acts as an intelligence layer, turning your simple ideas into prompts that get you better results.</p>
-        </div>
+    
+    <div class="about-container">
+      <div class="about-intro">
+        <p>EaseMyPrompt.ai is built to make artificial intelligence easy, practical, and effective for everyone. We help users convert simple, everyday ideas into structured, optimized prompts that unlock better AI results.</p>
+        <p>Artificial intelligence has incredible potential, but for most people, that potential remains untapped because communicating effectively with AI is hard. We exist to translate human intent into AI-ready instructions that actually work.</p>
       </div>
-      <div class="faq-item">
-        <button class="faq-question">
-          <span>Who is this for?</span>
-          <span class="icon">&plus;</span>
-        </button>
-        <div class="faq-answer">
-          <p>Derek is for developers, designers, marketers, writers, and anyone who uses generative AI in their workflow. If you want to save time and get more out of your AI tools, Derek is for you.</p>
+
+      <div class="about-grid">
+        <div class="about-card">
+          <h3>Our Approach</h3>
+          <p>Unlike generic AI tools that expect users to “figure out” how to ask the right questions, EaseMyPrompt.ai is designed around clarity and ease. We combine carefully crafted prompt structures with intelligent processing to ensure that every input is understood in context.</p>
         </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">
-          <span>How does the 'Pro' plan work?</span>
-          <span class="icon">&plus;</span>
-        </button>
-        <div class="faq-answer">
-          <p>The Pro plan gives you unlimited access to all of Derek's features, including unlimited prompt generations, the full prompt library, and our exclusive Power Prompts. It's a flat monthly fee, and you can cancel anytime.</p>
+        <div class="about-card">
+          <h3>Derek Intelligence</h3>
+          <p>At the core is Derek, our proprietary prompt optimization engine. Derek analyzes intent, identifies missing context, and applies professional structure so that AI models can generate higher-quality outputs without you needing to learn prompt engineering.</p>
+        </div>
+        <div class="about-card">
+          <h3>All-in-One Experience</h3>
+          <p>EaseMyPrompt.ai is a complete AI interaction platform. Explore prompts, generate from scratch, and receive AI-generated outputs directly. No need to copy and paste across multiple tools—everything happens in one seamless workflow.</p>
+        </div>
+        <div class="about-card">
+          <h3>Custom Solutions</h3>
+          <p>We understand that not every requirement fits into a predefined template. Users can share specific needs and receive prompts designed specifically for their use case, ensuring higher relevance for professional and creative domains.</p>
+        </div>
+        <div class="about-card">
+          <h3>Creative Innovation</h3>
+          <p>With Power Prompts, we push AI beyond basic generation into advanced creative use cases like filmmaking, VFX concepts, and product visualization. We are evolving from a tool into a broader AI productivity ecosystem.</p>
+        </div>
+        <div class="about-card">
+          <h3>Why EaseMyPrompt?</h3>
+          <p>We adapt AI to users, not the other way around. Our platform reduces trial and error, eliminates guesswork, and helps you unlock the true potential of artificial intelligence with minimal effort. It is a smarter way to communicate with AI.</p>
         </div>
       </div>
     </div>
@@ -510,16 +478,6 @@
   </div>
 </footer>
 
-<!-- GENERATION LIMIT MODAL -->
-<div class="modal-overlay" id="generationLimitModal">
-  <div class="modal-box">
-    <h2>You're out of generations!</h2>
-    <p>Sign up for free to get unlimited access and unlock all features.</p>
-    <button id="genLimitSignupBtn" class="primary-btn">Sign Up Free</button>
-    <button id="closeGenLimitModalBtn" class="secondary-btn">Maybe Later</button>
-  </div>
-</div>
-
 <!-- LOGIN MODAL -->
 <div class="modal-overlay" id="loginModal">
   <div class="auth-card">
@@ -527,16 +485,18 @@
     <h1 class="auth-title">Welcome back</h1>
     <p class="auth-sub">Login to continue with easemyprompt.ai</p>
 
-    <form class="auth-form" id="loginForm">
+    <form class="auth-form" id="homeLoginForm">
       <div class="form-group">
         <label>Email</label>
-        <input type="email" placeholder="you@example.com" required>
+        <input type="email" id="homeLoginEmail" placeholder="you@example.com" required>
       </div>
       <div class="form-group">
         <label>Password</label>
-        <input type="password" placeholder="••••••••" required>
+        <input type="password" id="homeLoginPassword" placeholder="••••••••" required>
       </div>
-      <button class="auth-btn">Continue</button>
+      <button type="submit" class="auth-btn">Continue</button>
+
+
     </form>
 
     <div class="auth-footer">
@@ -553,20 +513,21 @@
     <h1 class="auth-title">Create account</h1>
     <p class="auth-sub">Start building powerful prompts</p>
 
-    <form class="auth-form" id="signupForm">
+    <form class="auth-form" id="homeSignupForm">
       <div class="form-group">
         <label>Name</label>
-        <input type="text" placeholder="Your name" required>
+        <input type="text" id="homeSignupName" placeholder="Your name" required>
       </div>
       <div class="form-group">
         <label>Email</label>
-        <input type="email" placeholder="you@example.com" required>
+        <input type="email" id="homeSignupEmail" placeholder="you@example.com" required>
       </div>
       <div class="form-group">
         <label>Password</label>
-        <input type="password" placeholder="••••••••" required>
+        <input type="password" id="homeSignupPassword" placeholder="••••••••" required>
       </div>
-      <button class="auth-btn">Create Account</button>
+      <button type="submit" class="auth-btn">Create Account</button>
+
     </form>
 
     <div class="auth-footer">

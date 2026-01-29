@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="../css/components.css">
   <link rel="stylesheet" href="../css/pages/derek.css">
 
-  <script defer src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script defer src= "../js/core/utils.js"></script>
   <script defer src="../js/components/navbar.js"></script>
   <script defer src="../js/pages/derek.js"></script>
 </head>
@@ -40,6 +40,42 @@
     </div>
   </section>
 </main>
+<script>
+  const token = localStorage.getItem("token");
+
+  if (!token) {
+    // user not logged in
+    window.location.href = "../auth/login.html";
+  }
+</script>
+<script>
+   
+  const input = document.getElementById("derekInput");
+  const sendBtn = document.getElementById("derekSendBtn");
+  const responseBox = document.getElementById("derekResponse");
+
+  sendBtn.addEventListener("click", sendToDerek);
+
+  async function sendToDerek() {
+    const idea = input.value.trim();
+    if (!idea) return;
+
+    responseBox.innerHTML = "Thinking...";
+
+    // SIMULATE DEREK GENERATION
+    setTimeout(() => {
+      responseBox.innerText = `[DEREK GENERATED PROMPT]
+
+Here is a detailed, engineering-grade prompt based on your idea: "${idea}"
+
+Role: Expert AI Assistant
+Task: Create a comprehensive guide...
+Context: The user wants to achieve...
+Constraints: Use professional tone...`;
+    }, 1500);
+  }
+</script>
+
 
 </body>
 </html>

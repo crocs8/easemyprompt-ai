@@ -9,42 +9,26 @@
   <link rel="stylesheet" href="../css/components.css">
   <link rel="stylesheet" href="../css/pages/profile.css">
 
-  <script defer src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script defer src="../js/core/utils.js"></script>
   <script defer src="../js/components/navbar.js"></script>
   <script defer src="../js/pages/profile.js"></script>
 </head>
 <body>
 
 <main class="profile-wrapper">
-  <div class="profile-header">
-    <div class="avatar">AA</div>
-    <div class="user-details">
-      <h2 class="name">Aryan Ashwin</h2>
-      <p class="email">aryan@email.com</p>
-    </div>
-  </div>
+  <section class="profile-card">
+    <div class="profile-avatar" id="profileAvatar">A</div>
 
-  <div class="profile-section">
-    <div class="info-item">
-      <span>Username</span>
-      <p>@aryan</p>
-    </div>
-    <div class="info-item">
-      <span>Plan</span>
-      <p>Free <a href="#" class="upgrade-link">Upgrade</a></p>
-    </div>
-  </div>
+    <h2 id="profileName">Loading...</h2>
+    <p id="profileEmail"></p>
 
-  <div class="profile-section">
-    <a href="settings.html" class="nav-item">
-      <span>General Settings</span>
-      <span class="arrow">&rarr;</span>
-    </a>
-  </div>
+    <div class="profile-meta">
+      <span>Tokens</span>
+      <strong id="profileTokens">—</strong>
+    </div>
 
-  <div class="profile-section">
-     <button class="logout-btn">Logout</button>
-  </div>
+    <button class="logout-btn" id="logoutBtn">Logout</button>
+  </section>
 </main>
 
 </body>

@@ -154,3 +154,77 @@
     max-width: 320px;
   }
 }
+.prompt-row {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+}
+
+.prompt-card {
+  min-width: 220px;
+  padding: 12px;
+  border-radius: 12px;
+  background: #111;
+  color: #fff;
+}
+.prompt-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+
+.prompt-modal.hidden {
+  display: none;
+}
+
+.prompt-modal-content {
+  background: #0f0f0f;
+  color: #fff;
+  width: 100%;
+  max-width: 720px;
+  max-height: 85vh;
+  border-radius: 16px;
+  padding: 20px;
+  overflow-y: auto;
+  position: relative;
+}
+
+.prompt-modal-content h2 {
+  margin-bottom: 12px;
+}
+
+.prompt-modal-content pre {
+  white-space: pre-wrap;
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.prompt-close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  color: white;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.copy-btn {
+  margin-top: 16px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  background: #3cff8f;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}

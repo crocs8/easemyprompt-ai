@@ -1,3 +1,4 @@
+ 
 const navbar = document.createElement("header");
 navbar.innerHTML = `
   <nav class="navbar">
@@ -26,8 +27,8 @@ navbar.innerHTML = `
         <div class="dropdown-header">
           <div class="avatar-circle small">AA</div>
           <div class="user-info">
-            <span class="name">Aryan Ashwin</span>
-            <span class="email">aryan@email.com</span>
+            <span class="name" id="navUserName">Loading...</span>
+            <span class="email" id="navUserEmail">...</span>
             <span class="tokens-badge" id="navTokenDisplay">Loading...</span>
           </div>
         </div>
@@ -285,6 +286,7 @@ backToSidebar.addEventListener("click", () => {
 
 // Logout
 navLogout.addEventListener("click", () => { 
+  localStorage.removeItem("token");
   window.location.href = "index.html";
 });
 
@@ -297,36 +299,39 @@ if(themeSelect) {
     });
 }
 
-// --- TOKEN SYSTEM DISPLAY ---
-function checkDailyReset() {
-  const tokens = localStorage.getItem("derekTokens");
-  if (tokens === null) return; // Not logged in
+// --- MOCK USER DATA (For Demo) ---
+function loadDemoUser() {
+  const tokenDisplay = document.getElementById("navTokenDisplay");
+  const nameDisplay = document.getElementById("navUserName");
+  const emailDisplay = document.getElementById("navUserEmail");
 
-  const now = new Date();
-  // Reset cycle starts at 12:00 PM.
-  // If it's before 12 PM, we are still in "yesterday's" cycle relative to the reset.
-  if (now.getHours() < 12) {
-    now.setDate(now.getDate() - 1);
-  }
-  const cycleDate = now.toDateString();
-  const lastReset = localStorage.getItem("derekLastReset");
+  if (tokenDisplay) tokenDisplay.textContent = `💎 1000 Tokens`;
+  if (nameDisplay) nameDisplay.textContent = "Demo User";
+  if (emailDisplay) emailDisplay.textContent = "demo@example.com";
+}
+async function loadUser() {
+  const token = getToken();
+  if (!token) return;
 
-  if (lastReset !== cycleDate) {
-    localStorage.setItem("derekTokens", "400");
-    localStorage.setItem("derekLastReset", cycleDate);
+  try {
+    const res = await fetch(`${API_BASE_URL}/auth/me`, {
+      headers: authHeaders()
+    });
+
+    if (!res.ok) throw new Error();
+
+    const user = await res.json();
+
+    document.getElementById("navUserName").textContent = user.name;
+    document.getElementById("navUserEmail").textContent = user.email;
+    document.getElementById("navTokenDisplay").textContent = `💎 ${user.tokens} Tokens`;
+
+  } catch {
+    logout();
   }
 }
-checkDailyReset();
+loadUser();
 
-function updateTokenDisplay() {
-  const display = document.getElementById("navTokenDisplay");
-  if (display) {
-    const tokens = localStorage.getItem("derekTokens") || "0";
-    display.textContent = `💎 ${tokens} Tokens`;
-  }
-}
-updateTokenDisplay();
-window.addEventListener("tokensUpdated", updateTokenDisplay);
 
 // --- GLOBAL NETWORK BACKGROUND ---
 document.addEventListener("DOMContentLoaded", () => {

@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="../css/components.css">
   <link rel="stylesheet" href="../css/pages/preferences.css">
 
-  <script defer src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script defer src= "../js/core/utils.js"></script>
   <script defer src="../js/pages/preferences.js"></script>
 </head>
 <body>
@@ -77,6 +77,41 @@
     <p class="footer-note">You can change this later in settings.</p>
   </div>
 </main>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".pref-card");
+  const continueBtn = document.getElementById("continueBtn");
+  const selectionCount = document.getElementById("selectionCount");
+  let selected = 0;
+
+  cards.forEach(card => {
+    card.addEventListener("click", () => {
+      card.classList.toggle("selected");
+      if (card.classList.contains("selected")) {
+        selected++;
+      } else {
+        selected--;
+      }
+      selectionCount.textContent = selected;
+      continueBtn.disabled = selected === 0;
+      
+      if (selected > 0) {
+        continueBtn.style.opacity = "1";
+        continueBtn.style.cursor = "pointer";
+      } else {
+        continueBtn.style.opacity = "0.5";
+        continueBtn.style.cursor = "not-allowed";
+      }
+    });
+  });
+
+  continueBtn.addEventListener("click", () => {
+    // In a real app, you would save preferences to the backend here
+    window.location.href = "library.html";
+  });
+});
+</script>
 
 </body>
 </html>
