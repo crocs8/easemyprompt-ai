@@ -1,5 +1,6 @@
 import OpenAI from "openai";
 import { TOKENS } from "../utils/constants.js";
+import Prompt from "../models/Prompt.js";
 
 export const chatWithGPT = async (req, res) => {
   try {
