@@ -1,4 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
+// ===== GLOBAL LOGIN MODAL API =====
+window.openLoginModal = function () {
+  loginModal.style.display = "flex";
+  document.body.style.overflow = "hidden";
+
+  if (window.gsap) {
+    gsap.fromTo(loginModal, { opacity: 0 }, { opacity: 1, duration: 0.3 });
+  }
+};
+
+window.closeLoginModal = function () {
+  loginModal.style.display = "none";
+  document.body.style.overflow = "";
+};
 
   // Prevent dummy links
   document.querySelectorAll('a[href="#"]').forEach(a =>
@@ -104,11 +118,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  document.getElementById("headerLoginBtn")
-    ?.addEventListener("click", () => openModal(loginModal));
+document.getElementById("headerLoginBtn")
+  ?.addEventListener("click", () => window.openLoginModal());
+
 
   document.querySelectorAll(".close-auth-modal")
-    .forEach(b => b.onclick = () => closeModal(b.closest(".modal-overlay")));
+  .forEach(btn => {
+    btn.addEventListener("click", () => window.closeLoginModal());
+  });
+
 
   document.getElementById("switchToSignup")
     ?.addEventListener("click", () => { closeModal(loginModal); openModal(signupModal); });
@@ -167,6 +185,22 @@ document.getElementById("homeSignupForm")
 
     } catch (err) {
       alert(err.message || "Signup failed");
+    }
+  });
+});
+document.querySelectorAll(".copy-trigger, .see-more-trigger").forEach(btn => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (!getToken()) {
+      window.openLoginModal();
+    }
+  });
+});
+document.querySelectorAll(".power-card a").forEach(link => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (!getToken()) {
+      window.openLoginModal();
     }
   });
 });
