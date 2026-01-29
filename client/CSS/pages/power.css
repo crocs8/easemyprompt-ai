@@ -21,6 +21,23 @@
   margin-bottom: 2rem;
 }
 
+.power-intro {
+  margin-bottom: 3rem;
+}
+
+.power-intro h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+
+.power-intro p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #7dffb1; /* Green text for the theme */
+  margin-bottom: 1rem;
+}
+
 /* POSTERS */
 .poster-grid {
   display: grid;
